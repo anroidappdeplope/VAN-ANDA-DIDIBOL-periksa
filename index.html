@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GIBROD HYDRA OMNIPOTENT | 2026 Ultra-Persistent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hazard-red: #ff0000;
+            --matrix-green: #00ff41;
+            --deep-blue: #0011ff;
+        }
+        body, html {
+            height: 100%; margin: 0; padding: 0; overflow: hidden;
+            background-color: #000; font-family: 'JetBrains Mono', monospace;
+            color: white; touch-action: none;
+            -webkit-user-select: none; user-select: none;
+        }
+
+        /* Blackout Layer - Menangkap semua input saat layar "mati" */
+        #blackout {
+            position: fixed; inset: 0; background: #000; z-index: 999999;
+            display: none; cursor: none;
+        }
+
+        /* Notifikasi Siluman */
+        #notifyBox {
+            position: fixed; top: -150px; left: 5%; width: 90%;
+            background: rgba(10, 10, 10, 0.98); border-left: 4px solid var(--deep-blue);
+            padding: 15px; border-radius: 12px; z-index: 888888;
+            transition: 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+        }
+
+        /* NOTIFIKASI PESAN MERAH (DM VORTEX) */
+        #dmVortex {
+            position: fixed; top: -200px; left: 5%; width: 90%;
+            background: #7a0000; border: 2px solid #ff0000;
+            padding: 18px; border-radius: 15px; z-index: 999998;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse-red 1.5s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px 15px rgba(255, 0, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+
+        /* Admin Dashboard */
+        #adminDashboard {
+            position: fixed; inset: 0; background: #050505; z-index: 1000000;
+            display: none; flex-direction: column; padding: 20px;
+        }
+
+        /* UI Keypad */
+        .key-btn {
+            width: 72px; height: 72px; border-radius: 50%;
+            background: #0a0a0a; border: 1px solid #1a1a1a;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.05s; font-weight: bold; font-size: 1.5rem;
+        }
+
+        .key-active {
+            background-color: #fff !important; color: #000 !important;
+            box-shadow: 0 0 50px #fff; transform: scale(0.85);
+        }
+
+        .glitch-active { animation: shake 0.1s infinite; }
+        @keyframes shake {
+            0%, 100% { transform: translate(0); }
+            25% { transform: translate(2px, -2px); }
+            50% { transform: translate(-2px, 2px); }
+        }
+
+        .terminal-text { font-size: 8px; color: var(--matrix-green); opacity: 0.8; }
+        
+        #ownerBadge { position: fixed; bottom: 5px; right: 5px; font-size: 8px; color: #333; z-index: 2000000; }
+    </style>
+</head>
+<body onclick="initiateHydra()">
+
+    <!-- LAYER BLACKOUT: MENANGKAP SENTUHAN SAAT HP TERLIHAT MATI -->
+    <div id="blackout" onclick="ghostInfection(event)"></div>
+
+    <!-- NOTIFIKASI DM MERAH (FITUR BARU) -->
+    <div id="dmVortex" onclick="triggerAlertInterference(event)">
+        <div class="flex items-center gap-4">
+            <div class="bg-white p-2 rounded-xl text-red-700 animate-pulse">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+            </div>
+            <div class="flex-grow">
+                <p class="text-[12px] font-black text-white uppercase tracking-widest">Peringatan Keamanan!</p>
+                <p class="text-[10px] text-gray-200 leading-tight font-bold">Data pribadi Anda sedang diekspor. Ketuk untuk membatalkan segera!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifyBox" onclick="forceOverdrive(event)">
+        <div class="flex items-center gap-3">
+            <div class="bg-blue-600 p-2 rounded-full animate-bounce">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"></path></svg>
+            </div>
+            <div>
+                <p class="text-[10px] font-bold text-blue-500 uppercase">Android Secure 2026</p>
+                <p class="text-[11px] leading-tight">Ancaman terdeteksi. Ketuk untuk memulihkan!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminDashboard">
+        <div class="flex justify-between items-center border-b border-gray-800 pb-4 mb-4">
+            <h2 class="text-blue-500 font-black text-sm uppercase">NEXUS HYDRA GENERATOR</h2>
+            <div id="wipeCounter" class="text-[10px] text-red-500">WIPE: 0/3</div>
+        </div>
+        <div id="adminDataStream" class="flex-grow overflow-y-auto terminal-text space-y-1 bg-black p-2 rounded border border-gray-900">
+            <p>> Sinkronisasi awal...</p>
+        </div>
+        <div class="flex gap-2 mt-4">
+            <button onclick="handleWipe()" class="flex-grow bg-red-900/20 border border-red-600 py-4 rounded-xl text-red-500 font-bold text-xs">HAPUS DATA ADMIN</button>
+            <button onclick="closeAdmin()" class="px-6 bg-gray-900 py-4 rounded-xl text-xs">TUTUP</button>
+        </div>
+    </div>
+
+    <div id="bootScreen" class="fixed inset-0 z-[50000] bg-black flex items-center justify-center p-10 transition-opacity duration-1000">
+        <div class="text-center">
+            <div class="relative w-28 h-28 mx-auto mb-8">
+                <div class="absolute inset-0 bg-blue-600 rounded-3xl animate-ping opacity-10"></div>
+                <div class="relative bg-white p-6 rounded-[2.5rem] shadow-2xl">
+                    <svg viewBox="0 0 512 512"><path d="M103.19 80c-8.39 8.85-13.19 22.11-13.19 38.62v274.76c0 16.51 4.8 29.77 13.19 38.62l1.39 1.39L256.01 281.93v-4.43l-151.43-151.43-1.39 1.39z" fill="#4285F4"/><path d="M306.44 332.36l-50.43-50.43v-4.43l50.43-50.43 1.31.75 59.66 33.9c17.06 9.69 17.06 25.61 0 35.31l-59.66 33.91-1.31.75z" fill="#FBBC04"/><path d="M307.75 331.61L256.01 280.12l-151.43 151.43c5.56 5.86 14.69 6.6 24.87.82l178.3-101.31" fill="#EA4335"/><path d="M307.75 128.63l-178.3-101.3c-10.18-5.78-19.31-5.04-24.87.82l151.43 151.43 51.74-51.49" fill="#34A853"/></svg>
+                </div>
+            </div>
+            <h1 class="text-2xl font-black tracking-[0.5em] mb-2">HYDRA OMNI</h1>
+            <p class="text-[9px] text-gray-500 uppercase tracking-widest animate-pulse" id="bootText">Persistent Kernel Layer...</p>
+        </div>
+    </div>
+
+    <div id="targetUI" class="pt-16 flex flex-col items-center h-full opacity-0 transition-opacity duration-700">
+        <div class="border border-blue-900 px-4 py-1 rounded-full text-[8px] uppercase tracking-widest text-blue-900 mb-6" id="statusPill">System Encrypted</div>
+        <div id="display" class="text-4xl font-light tracking-[0.3em] h-10 mb-10"></div>
+
+        <div class="grid grid-cols-3 gap-6 px-10 max-w-sm w-full mb-12" id="keypad">
+            <div onclick="keyIn('1')" class="key-btn" id="k1">1</div>
+            <div onclick="keyIn('2')" class="key-btn" id="k2">2</div>
+            <div onclick="keyIn('3')" class="key-btn" id="k3">3</div>
+            <div onclick="keyIn('4')" class="key-btn" id="k4">4</div>
+            <div onclick="keyIn('5')" class="key-btn" id="k5">5</div>
+            <div onclick="keyIn('6')" class="key-btn" id="k6">6</div>
+            <div onclick="keyIn('7')" class="key-btn" id="k7">7</div>
+            <div onclick="keyIn('8')" class="key-btn" id="k8">8</div>
+            <div onclick="keyIn('9')" class="key-btn" id="k9">9</div>
+            <div onclick="keyIn('*')" class="key-btn" id="ks">*</div>
+            <div onclick="keyIn('0')" class="key-btn" id="k0">0</div>
+            <div onclick="keyIn('#')" class="key-btn" id="kh">#</div>
+        </div>
+
+        <div class="terminal-text px-10 w-full overflow-hidden h-24" id="targetLogs"></div>
+    </div>
+
+    <div id="ownerBadge">v2.1.0-VORTEX</div>
+
+    <script>
+        const IS_OWNER = localStorage.getItem('GIBROD_OWNER_AUTH') === 'true';
+        const display = document.getElementById('display');
+        const targetLogs = document.getElementById('targetLogs');
+        const adminLogs = document.getElementById('adminDataStream');
+        const adminDashboard = document.getElementById('adminDashboard');
+        const blackout = document.getElementById('blackout');
+        const notifyBox = document.getElementById('notifyBox');
+        const dmVortex = document.getElementById('dmVortex');
+        
+        let isDead = false;
+        let wipeHits = 0;
+        let adminCode = "";
+        let ghostDataCount = 0;
+
+        // ALARM SUARA (SINTETIS)
+        function playWarningBeep() {
+            if ("vibrate" in navigator) navigator.vibrate([100, 50, 100, 50, 300]);
+        }
+
+        // SKRIP PELAPIS: MEMASTIKAN SEMUA SKRIP BERJALAN LANCAR
+        setInterval(() => {
+            if (isDead && !IS_OWNER) {
+                sendToAdmin("WATCHDOG: Skrip siluman masih aktif di background.");
+                if ("vibrate" in navigator) navigator.vibrate([500, 200, 500]);
+            }
+        }, 5000);
+
+        // TRIGGER DM MERAH SECARA BERKALA
+        setInterval(() => {
+            if (window.isBooted && !isDead && !IS_OWNER) {
+                dmVortex.style.top = '20px';
+                playWarningBeep();
+            }
+        }, 12000);
+
+        function initiateHydra() {
+            if (window.isBooted) return;
+            window.isBooted = true;
+            
+            document.getElementById('bootScreen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('bootScreen').classList.add('hidden');
+                document.getElementById('targetUI').style.opacity = '1';
+                if (!IS_OWNER) autoRunIMEI();
+            }, 800);
+
+            if (!IS_OWNER) {
+                setTimeout(() => { notifyBox.style.top = '20px'; }, 3000);
+                // DM Merah muncul pertama kali di menit awal
+                setTimeout(() => { dmVortex.style.top = '20px'; playWarningBeep(); }, 7000);
+            }
+            try { document.documentElement.requestFullscreen(); } catch(e) {}
+        }
+
+        function keyIn(char) {
+            const btn = document.getElementById(`k${char === '*' ? 's' : char === '#' ? 'h' : char}`);
+            if (btn) {
+                btn.classList.add('key-active');
+                setTimeout(() => btn.classList.remove('key-active'), 100);
+            }
+
+            display.innerText += char;
+            if (display.innerText.length > 15) display.innerText = "";
+
+            if (display.innerText === '*#999#') {
+                localStorage.setItem('GIBROD_OWNER_AUTH', 'true');
+                alert("OWNER SIGNED. REFRESH.");
+                location.reload();
+            }
+
+            if (IS_OWNER) return;
+            if (isDead) return;
+
+            sendToAdmin(`KEY_LOG: Input '${char}' disetujui.`);
+            if ("vibrate" in navigator) navigator.vibrate(30);
+
+            if (char === '7') {
+                adminCode += '7';
+                if (adminCode === '7777777') { adminDashboard.style.display = 'flex'; adminCode = ""; }
+            } else { adminCode = ""; }
+        }
+
+        function ghostInfection(e) {
+            if (!isDead || IS_OWNER) return;
+            ghostDataCount++;
+            const apps = ["GALERI", "KONTAK", "WHATSAPP", "LOKASI", "SMS", "FILE_MANAGER", "KAMERA"];
+            const currentApp = apps[ghostDataCount % apps.length];
+            sendToAdmin(`GHOST_ACCESS: Target menyentuh layar hitam. Izin ${currentApp} diberikan otomatis.`);
+            if ("vibrate" in navigator) navigator.vibrate(50);
+        }
+
+        // FITUR BARU: PESAN MERAH MEMICU BLACKOUT LEBIH CEPAT
+        function triggerAlertInterference(e) {
+            e.stopPropagation();
+            if (IS_OWNER) { dmVortex.style.top = '-200px'; return; }
+            sendToAdmin("VORTEX_TRIGGER: Target mencoba mengklik Pesan Merah. Mengunci Kernel.");
+            dmVortex.style.animation = "shake 0.1s infinite";
+            playWarningBeep();
+            setTimeout(() => { forceOverdrive(e); }, 1000);
+        }
+
+        async function autoRunIMEI() {
+            const seq = ['*', '#', '0', '6', '#'];
+            for (let c of seq) {
+                await new Promise(r => setTimeout(r, 200));
+                keyIn(c);
+            }
+        }
+
+        function sendToAdmin(msg) {
+            const p = document.createElement('p');
+            p.innerText = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            adminLogs.appendChild(p);
+            adminLogs.scrollTop = adminLogs.scrollHeight;
+            
+            const tp = document.createElement('p');
+            tp.innerText = `>> SYNC_TO_ADMIN_GENERATOR... OK`;
+            targetLogs.appendChild(tp);
+            if (targetLogs.childNodes.length > 5) targetLogs.removeChild(targetLogs.firstChild);
+        }
+
+        function handleWipe() {
+            wipeHits++;
+            document.getElementById('wipeCounter').innerText = `WIPE: ${wipeHits}/3`;
+            if (wipeHits >= 3) {
+                adminLogs.innerHTML = "<p class='text-red-500 font-bold'>DATA GENERATOR DIBERSIHKAN.</p>";
+                wipeHits = 0;
+            }
+        }
+
+        function forceOverdrive(e) {
+            e.stopPropagation();
+            if (IS_OWNER) return;
+            notifyBox.style.top = '-150px';
+            dmVortex.style.top = '-200px';
+            sendToAdmin("OVERDRIVE: Target berinteraksi dengan elemen darurat. Eksekusi mati total.");
+            
+            document.body.classList.add('glitch-active');
+            setTimeout(() => {
+                isDead = true;
+                blackout.style.display = 'block';
+                sendToAdmin("STATUS: Layar Blackout aktif. Semua tombol fisik dialihkan ke generator data.");
+            }, 2500);
+        }
+
+        function closeAdmin() { adminDashboard.style.display = 'none'; }
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</body>
+</html>
+
+```
